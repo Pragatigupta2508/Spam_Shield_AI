@@ -22,11 +22,14 @@ const [recommendation, setRecommendation] = useState<string[]>([]);
     setLoading(true);
 
     try {
-      const response = await fetch("https://spam-shield-ai-backend.onrender.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
-      });
+      const response = await fetch(
+  "https://spam-shield-ai-backend.onrender.com/predict",
+  {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message }),
+  }
+);
 
       const data = await response.json();
 
